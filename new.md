@@ -9,6 +9,6 @@ middle title
     b
 
 ### small title
- x
- y
- z
+    x
+    y
+    z
