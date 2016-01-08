@@ -1,8 +1,10 @@
 # pysh
 a project to place your python and shell scripts
+
 ## basic config for vim
     set ts=4
     set expandtab
+    
 ## basic config for git
     git clone https://github.com/qwyang/pysh.git
     git config --global user.email "yangqunwei@huawei.com"
@@ -14,3 +16,7 @@ a project to place your python and shell scripts
     git ls-files
     git ls-files -d
     git ls-files -d | xargs git checkout
+
+## other information
+    IDE for shell and py: pycharm
+    Online Editor for markdown: http://mahua.jser.me/
