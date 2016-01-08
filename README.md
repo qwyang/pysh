@@ -10,6 +10,7 @@ a project to place your python and shell scripts
     git config --global user.email "yangqunwei@huawei.com"
     git config --global user.name "qunwei"
     git config --global core.editor vim
+    git config --global push.default simple
 
 ## useful help for git
     git config -l --global
