@@ -13,6 +13,6 @@ a project to place your python and shell scripts
   git ls-files -d
   git ls-files -d | xargs git checkout
 
- a
- b
- c
+  a  
+  b  
+  c  
