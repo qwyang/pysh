@@ -20,3 +20,4 @@ a project to place your python and shell scripts
 ## other information
     IDE for shell and py: pycharm
     Online Editor for markdown: http://mahua.jser.me/
+    markdown introduction: http://blog.csdn.net/skykingf/article/details/45536231
