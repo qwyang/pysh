@@ -1,1 +1,1 @@
-python ci.py
+python ci.py --dir algorithms
