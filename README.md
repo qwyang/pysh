@@ -2,6 +2,7 @@
 a project to place your python and shell scripts
 
 ## basic config for vim
+    vim ~/.vimrc:
     set ts=4
     set expandtab
     
@@ -18,7 +19,8 @@ a project to place your python and shell scripts
     git ls-files
     git ls-files -d
     git ls-files -d | xargs git checkout
-
+    git config core.eol crlf
+    git config core.autocrlf true
 ## other information
     IDE for shell and py: pycharm
     Online Editor for markdown: http://mahua.jser.me/
