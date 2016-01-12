@@ -21,6 +21,8 @@ a project to place your python and shell scripts
     git ls-files -d | xargs git checkout
     git config core.eol crlf
     git config core.autocrlf true
+    git archive --format tar.gz -o abc.tar.gz HEAD
+
 ## other information
     IDE for shell and py: pycharm
     Online Editor for markdown: http://mahua.jser.me/
