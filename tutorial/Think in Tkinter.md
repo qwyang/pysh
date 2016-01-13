@@ -68,7 +68,7 @@ This program eases you into user-interace programming by showing how these basic
 Program Source Code
 
 
-#----- task 2:  define the event handler routines ---------------------
+----- task 2:  define the event handler routines ---------------------
 def handle_A():
     print "Wrong! Try again!"
 
@@ -78,7 +78,7 @@ def handle_B():
 def handle_C():
     print "Wrong! Try again!"
 
-# ------------ task 1: define the appearance of the screen ------------
+------------ task 1: define the appearance of the screen ------------
 print "\n"*100   # clear the screen
 print "            VERY CHALLENGING GUESSING GAME"
 print "========================================================"
@@ -94,7 +94,7 @@ print "========================================================"
 print "What kind of thing is 'Trillium'?"
 print
 
-# ---- task 4: the event loop.  We loop forever, observing events. ---
+---- task 4: the event loop.  We loop forever, observing events. ---
 while 1:
 
     # We observe the next event
@@ -241,19 +241,15 @@ Note how myContainer1 has stretched to accommodate button1.
 
 Program Source Code
 
-from Tkinter import *
-
-root = Tk()
-
-myContainer1 = Frame(root)
-myContainer1.pack()
-
-button1 = Button(myContainer1)      ### (1)
-button1["text"]= "Hello, World!"    ### (2)
-button1["background"] = "green"     ### (3)
-button1.pack()	                    ### (4)
-
-root.mainloop()
+    from Tkinter import *
+    root = Tk()
+    myContainer1 = Frame(root)
+    myContainer1.pack()
+    button1 = Button(myContainer1)      ### (1)
+    button1["text"]= "Hello, World!"    ### (2)
+    button1["background"] = "green"     ### (3)
+    button1.pack()	                    ### (4)
+    root.mainloop()
 
 ### tt035.py
 
@@ -267,7 +263,8 @@ In this program, we have added a class called MyApp and moved some of the code f
 
 (2) When the program executes, the first thing it does is to create an instance of the class. The statement that creates the instance is
 
-   myapp = MyApp(root)
+    myapp = MyApp(root)
+    
 Note that the name of the class is "MyApp" (note the capitalization) and the name of the instance is "myapp" (note the lack of capitalization).
 
 Note also that this statement passes "root" as an argument into the constructor method (__init__) of MyApp. The constructor method recognizes the root under the name "myParent". (1a)
@@ -300,21 +297,20 @@ When you run this program, it will look exactly like the previous one. No functi
 
 Program Source Code
 
-from Tkinter import *
-
-class MyApp:                         ### (1)
-    def __init__(self, myParent):      ### (1a)
-        self.myContainer1 = Frame(myParent)
-        self.myContainer1.pack()
-
-        self.button1 = Button(self.myContainer1)
-        self.button1["text"]= "Hello, World!"
-        self.button1["background"] = "green"
-        self.button1.pack()
-
-root = Tk()
-myapp = MyApp(root)  ### (2)
-root.mainloop()      ### (3)
+    from Tkinter import *
+    
+    class MyApp:                         ### (1)
+        def __init__(self, myParent):      ### (1a)
+            self.myContainer1 = Frame(myParent)
+            self.myContainer1.pack()
+            self.button1 = Button(self.myContainer1)
+            self.button1["text"]= "Hello, World!"
+            self.button1["background"] = "green"
+            self.button1.pack()
+    
+    root = Tk()
+    myapp = MyApp(root)  ### (2)
+    root.mainloop()      ### (3)
 
 ### tt040.py
 
@@ -340,35 +336,32 @@ Note also that the buttons are stacked on top of each other. In the next program
 
 Program Source Code
 
-from Tkinter import *
-
-class MyApp:
-    def __init__(self, parent):
-        self.myContainer1 = Frame(parent)
-        self.myContainer1.pack()
-
-        self.button1 = Button(self.myContainer1)
-        self.button1["text"] = "Hello, World!"   ### (1)
-        self.button1["background"] = "green"     ### (1)
-        self.button1.pack()
-
-        self.button2 = Button(self.myContainer1)
-        self.button2.configure(text="Off to join the circus!") ### (2)
-        self.button2.configure(background="tan")               ### (2)
-        self.button2.pack()
-
-
-        self.button3 = Button(self.myContainer1)
-        self.button3.configure(text="Join me?", background="cyan")  ### (3)
-        self.button3.pack()
-
-        self.button4 = Button(self.myContainer1, text="Goodbye!", background="red") ### (4)
-        self.button4.pack()
-
-
-root = Tk()
-myapp = MyApp(root)
-root.mainloop()
+    from Tkinter import *
+    
+    class MyApp:
+        def __init__(self, parent):
+            self.myContainer1 = Frame(parent)
+            self.myContainer1.pack()
+    
+            self.button1 = Button(self.myContainer1)
+            self.button1["text"] = "Hello, World!"   ### (1)
+            self.button1["background"] = "green"     ### (1)
+            self.button1.pack()
+    
+            self.button2 = Button(self.myContainer1)
+            self.button2.configure(text="Off to join the circus!") ### (2)
+            self.button2.configure(background="tan")               ### (2)
+            self.button2.pack()
+            self.button3 = Button(self.myContainer1)
+            self.button3.configure(text="Join me?", background="cyan")  ### (3)
+            self.button3.pack()
+    
+            self.button4 = Button(self.myContainer1, text="Goodbye!", background="red") ### (4)
+            self.button4.pack()
+    
+    root = Tk()
+    myapp = MyApp(root)
+    root.mainloop()
 
 ### tt050.py
 
@@ -409,36 +402,30 @@ When you run this program, you will now see the two buttons, side by side.
 
 Program Source Code
 
-from Tkinter import *
+    from Tkinter import *
+    
+    class MyApp:
+        def __init__(self, parent):
+            self.myContainer1 = Frame(parent)
+            self.myContainer1.pack()
+    
+            self.button1 = Button(self.myContainer1)
+            self.button1["text"]= "Hello, World!"
+            self.button1["background"] = "green"
+            self.button1.pack(side=LEFT)	### (1)
+            self.button2 = Button(self.myContainer1)
+            self.button2.configure(text="Off to join the circus!")
+            self.button2.configure(background="tan")
+            self.button2.pack(side=LEFT)	 ### (2)
+            self.button3 = Button(self.myContainer1)
+            self.button3.configure(text="Join me?", background="cyan")
+            self.button3.pack(side=LEFT)	  ### (3)
+            self.button4 = Button(self.myContainer1, text="Goodbye!", background="red")
+            self.button4.pack(side=LEFT)	  ### (4)
 
-class MyApp:
-    def __init__(self, parent):
-        self.myContainer1 = Frame(parent)
-        self.myContainer1.pack()
-
-        self.button1 = Button(self.myContainer1)
-        self.button1["text"]= "Hello, World!"
-        self.button1["background"] = "green"
-        self.button1.pack(side=LEFT)	### (1)
-
-
-        self.button2 = Button(self.myContainer1)
-        self.button2.configure(text="Off to join the circus!")
-        self.button2.configure(background="tan")
-        self.button2.pack(side=LEFT)	 ### (2)
-
-
-        self.button3 = Button(self.myContainer1)
-        self.button3.configure(text="Join me?", background="cyan")
-        self.button3.pack(side=LEFT)	  ### (3)
-
-        self.button4 = Button(self.myContainer1, text="Goodbye!", background="red")
-        self.button4.pack(side=LEFT)	  ### (4)
-
-
-root = Tk()
-myapp = MyApp(root)
-root.mainloop()
+    root = Tk()
+    myapp = MyApp(root)
+    root.mainloop()
 
 ### tt060.py
 
@@ -456,6 +443,7 @@ An "event handler" is a method or subroutine that handles events when they occur
 In Tkinter, the way that you create this binding is through the bind() method that is a feature of all Tkinter widgets. You use the bind() method in a statement of the form:
 
 	widget.bind(event_type_name, event_handler_name)
+	
 This kind of binding is called "event binding".
 
 [There is another way of binding an event_handler to a widget. It is called "command binding" and we will look at it a couple of programs from now. But for now, let's look at event binding. Once we understand what event binding is, it will make it easier to explain command binding.]
@@ -489,37 +477,37 @@ Finally, notice that because the text of one button is shorter than the text of 
 Program Source Code
 
 
-from Tkinter import *
-
-class MyApp:
-    def __init__(self, parent):
-        self.myParent = parent  ### (7) remember my parent, the root
-        self.myContainer1 = Frame(parent)
-        self.myContainer1.pack()
-
-        self.button1 = Button(self.myContainer1)
-        self.button1.configure(text="OK", background= "green")
-        self.button1.pack(side=LEFT)
-        self.button1.bind("<Button-1>", self.button1Click) ### (1)
-
-        self.button2 = Button(self.myContainer1)
-        self.button2.configure(text="Cancel", background="red")
-        self.button2.pack(side=RIGHT)
-        self.button2.bind("<Button-1>", self.button2Click) ### (2)
-
-    def button1Click(self, event):    ### (3)
-        if self.button1["background"] == "green": ### (4)
-            self.button1["background"] = "yellow"
-        else:
-            self.button1["background"] = "green"
-
-    def button2Click(self, event):  ### (5)
-        self.myParent.destroy()     ### (6)
-
-
-root = Tk()
-myapp = MyApp(root)
-root.mainloop()
+    from Tkinter import *
+    
+    class MyApp:
+        def __init__(self, parent):
+            self.myParent = parent  ### (7) remember my parent, the root
+            self.myContainer1 = Frame(parent)
+            self.myContainer1.pack()
+    
+            self.button1 = Button(self.myContainer1)
+            self.button1.configure(text="OK", background= "green")
+            self.button1.pack(side=LEFT)
+            self.button1.bind("<Button-1>", self.button1Click) ### (1)
+    
+            self.button2 = Button(self.myContainer1)
+            self.button2.configure(text="Cancel", background="red")
+            self.button2.pack(side=RIGHT)
+            self.button2.bind("<Button-1>", self.button2Click) ### (2)
+    
+        def button1Click(self, event):    ### (3)
+            if self.button1["background"] == "green": ### (4)
+                self.button1["background"] = "yellow"
+            else:
+                self.button1["background"] = "green"
+    
+        def button2Click(self, event):  ### (5)
+            self.myParent.destroy()     ### (6)
+    
+    
+    root = Tk()
+    myapp = MyApp(root)
+    root.mainloop()
 
 ### tt070.py
 
@@ -567,52 +555,52 @@ When you run this program, you will see two buttons. Clicking on the left button
 
 Program Source Code
 
-from Tkinter import *
-
-class MyApp:
-    def __init__(self, parent):
-        self.myParent = parent
-        self.myContainer1 = Frame(parent)
-        self.myContainer1.pack()
-
-        self.button1 = Button(self.myContainer1)
-        self.button1.configure(text="OK", background= "green")
-        self.button1.pack(side=LEFT)
-        self.button1.focus_force()         ### (0)
-        self.button1.bind("<Button-1>", self.button1Click)
-        self.button1.bind("<Return>", self.button1Click)  ### (1)
-
-        self.button2 = Button(self.myContainer1)
-        self.button2.configure(text="Cancel", background="red")
-        self.button2.pack(side=RIGHT)
-        self.button2.bind("<Button-1>", self.button2Click)
-        self.button2.bind("<Return>", self.button2Click)  ### (2)
-
-    def button1Click(self, event):
-        report_event(event)        ### (3)
-        if self.button1["background"] == "green":
-            self.button1["background"] = "yellow"
-        else:
-            self.button1["background"] = "green"
-
-    def button2Click(self, event):
-        report_event(event)   ### (4)
-        self.myParent.destroy()
-
-def report_event(event):     ### (5)
-    """Print a description of an event, based on its attributes.
-    """
-    event_name = {"2": "KeyPress", "4": "ButtonPress"}
-    print "Time:", str(event.time)   ### (6)
-    print "EventType=" + str(event.type), \
-        event_name[str(event.type)],\
-        "EventWidgetId=" + str(event.widget), \
-        "EventKeySymbol=" + str(event.keysym)
-
-
-root = Tk()
-myapp = MyApp(root)
-root.mainloop()
+    from Tkinter import *
+    
+    class MyApp:
+        def __init__(self, parent):
+            self.myParent = parent
+            self.myContainer1 = Frame(parent)
+            self.myContainer1.pack()
+    
+            self.button1 = Button(self.myContainer1)
+            self.button1.configure(text="OK", background= "green")
+            self.button1.pack(side=LEFT)
+            self.button1.focus_force()         ### (0)
+            self.button1.bind("<Button-1>", self.button1Click)
+            self.button1.bind("<Return>", self.button1Click)  ### (1)
+    
+            self.button2 = Button(self.myContainer1)
+            self.button2.configure(text="Cancel", background="red")
+            self.button2.pack(side=RIGHT)
+            self.button2.bind("<Button-1>", self.button2Click)
+            self.button2.bind("<Return>", self.button2Click)  ### (2)
+    
+        def button1Click(self, event):
+            report_event(event)        ### (3)
+            if self.button1["background"] == "green":
+                self.button1["background"] = "yellow"
+            else:
+                self.button1["background"] = "green"
+    
+        def button2Click(self, event):
+            report_event(event)   ### (4)
+            self.myParent.destroy()
+    
+    def report_event(event):     ### (5)
+        """Print a description of an event, based on its attributes.
+        """
+        event_name = {"2": "KeyPress", "4": "ButtonPress"}
+        print "Time:", str(event.time)   ### (6)
+        print "EventType=" + str(event.type), \
+            event_name[str(event.type)],\
+            "EventWidgetId=" + str(event.widget), \
+            "EventKeySymbol=" + str(event.keysym)
+    
+    
+    root = Tk()
+    myapp = MyApp(root)
+    root.mainloop()
 
 ### tt074.py
 
@@ -656,41 +644,41 @@ We'll look at these behaviors in our next program.
 
 Program Source Code
 
-from Tkinter import *
-
-class MyApp:
-    def __init__(self, parent):
-        self.myParent = parent
-        self.myContainer1 = Frame(parent)
-        self.myContainer1.pack()
-
-        self.button1 = Button(self.myContainer1, command=self.button1Click) ### (1)
-        self.button1.configure(text="OK", background= "green")
-        self.button1.pack(side=LEFT)
-        self.button1.focus_force()
-
-
-        self.button2 = Button(self.myContainer1, command=self.button2Click)  ### (2)
-        self.button2.configure(text="Cancel", background="red")
-        self.button2.pack(side=RIGHT)
-
-
-    def button1Click(self):  ### (3)
-        print "button1Click event handler"
-        if self.button1["background"] == "green":
-            self.button1["background"] = "yellow"
-        else:
-            self.button1["background"] = "green"
-
-    def button2Click(self): ### (4)
-        print "button2Click event handler"
-        self.myParent.destroy()
-
-
-
-root = Tk()
-myapp = MyApp(root)
-root.mainloop()
+    from Tkinter import *
+    
+    class MyApp:
+        def __init__(self, parent):
+            self.myParent = parent
+            self.myContainer1 = Frame(parent)
+            self.myContainer1.pack()
+    
+            self.button1 = Button(self.myContainer1, command=self.button1Click) ### (1)
+            self.button1.configure(text="OK", background= "green")
+            self.button1.pack(side=LEFT)
+            self.button1.focus_force()
+    
+    
+            self.button2 = Button(self.myContainer1, command=self.button2Click)  ### (2)
+            self.button2.configure(text="Cancel", background="red")
+            self.button2.pack(side=RIGHT)
+    
+    
+        def button1Click(self):  ### (3)
+            print "button1Click event handler"
+            if self.button1["background"] == "green":
+                self.button1["background"] = "yellow"
+            else:
+                self.button1["background"] = "green"
+    
+        def button2Click(self): ### (4)
+            print "button2Click event handler"
+            self.myParent.destroy()
+    
+    
+    
+    root = Tk()
+    myapp = MyApp(root)
+    root.mainloop()
 
 ### tt075.py
 
@@ -707,6 +695,7 @@ This behavior seems (to me, at least, with my Windows background) unusual. So pa
 Unfortunately, the only really reliable source of this information is the Tk source code itself. For more accessible information, you can check books about Tk (Brent Welch's "Practical Programming in Tcl and Tk" is especially good) or about Tkinter. The Tk documentation is spotty, but available online. For version 8.4 of Tcl, the online documentation is available at:
 
       http://www.tcl.tk/man/tcl8.4/TkCmd/contents.htm
+      
 You should also know that not all widgets provide a "command" option. Most of the various Button widgets (RadioButton, CheckButton, etc.) do. And others provide similar options (e.g. scrollcommand). But you really have to investigate each different kind of widget to find out whether it supports command binding. But by all means learn about the "command" option for the widgets that you will be using. It will improve the behavior of your GUI, and make your life as a coder easier.
 
 Using Event Binding And Command Binding Together
@@ -729,48 +718,48 @@ If you run this program, the behavior will be the same as the previous program, 
 
 Program Source Code
 
-from Tkinter import *
-
-class MyApp:
-    def __init__(self, parent):
-        self.myParent = parent
-        self.myContainer1 = Frame(parent)
-        self.myContainer1.pack()
-
-        self.button1 = Button(self.myContainer1, command=self.button1Click)
-        self.button1.bind("<Return>", self.button1Click_a)    ### (1)
-        self.button1.configure(text="OK", background= "green")
-        self.button1.pack(side=LEFT)
-        self.button1.focus_force()
-
-        self.button2 = Button(self.myContainer1, command=self.button2Click)
-        self.button2.bind("<Return>", self.button2Click_a)    ### (1)
-        self.button2.configure(text="Cancel", background="red")
-        self.button2.pack(side=RIGHT)
-
-    def button1Click(self):  ### (2)
-        print "button1Click event handler"
-        if self.button1["background"] == "green":
-            self.button1["background"] = "yellow"
-        else:
-            self.button1["background"] = "green"
-
-    def button2Click(self): ### (2)
-        print "button2Click event handler"
-        self.myParent.destroy()
-
-    def button1Click_a(self, event):  ### (3)
-        print "button1Click_a event handler (a wrapper)"
-        self.button1Click()
-
-    def button2Click_a(self, event):  ### (3)
-        print "button2Click_a event handler (a wrapper)"
-        self.button2Click()
-
-
-root = Tk()
-myapp = MyApp(root)
-root.mainloop()
+    from Tkinter import *
+    
+    class MyApp:
+        def __init__(self, parent):
+            self.myParent = parent
+            self.myContainer1 = Frame(parent)
+            self.myContainer1.pack()
+    
+            self.button1 = Button(self.myContainer1, command=self.button1Click)
+            self.button1.bind("<Return>", self.button1Click_a)    ### (1)
+            self.button1.configure(text="OK", background= "green")
+            self.button1.pack(side=LEFT)
+            self.button1.focus_force()
+    
+            self.button2 = Button(self.myContainer1, command=self.button2Click)
+            self.button2.bind("<Return>", self.button2Click_a)    ### (1)
+            self.button2.configure(text="Cancel", background="red")
+            self.button2.pack(side=RIGHT)
+    
+        def button1Click(self):  ### (2)
+            print "button1Click event handler"
+            if self.button1["background"] == "green":
+                self.button1["background"] = "yellow"
+            else:
+                self.button1["background"] = "green"
+    
+        def button2Click(self): ### (2)
+            print "button2Click event handler"
+            self.myParent.destroy()
+    
+        def button1Click_a(self, event):  ### (3)
+            print "button1Click_a event handler (a wrapper)"
+            self.button1Click()
+    
+        def button2Click_a(self, event):  ### (3)
+            print "button2Click_a event handler (a wrapper)"
+            self.button2Click()
+    
+    
+    root = Tk()
+    myapp = MyApp(root)
+    root.mainloop()
 
 ### tt076.py
 
@@ -803,6 +792,7 @@ Solution 1 -- Use Global Variables
 One technique for doing this is to make them (the variables that you want to share) global. For example, in each handler that needs to change or see myVariable1 and myVariable2, you can put the statement:
 
 		global myVariable1, myVariable2
+		
 But the use of global variables is potentially dangerous, and is generally frowned upon as sloppy programming.
 
 Solution 2 -- Use Instance Variables
@@ -825,49 +815,49 @@ Note that none of the buttons will close the application, so when you are ready 
 
 Program Source Code
 
-from Tkinter import *
-
-class MyApp:
-    def __init__(self, parent):
-
-        ### 1 -- At the outset, we haven't yet invoked any button handler.
-        self.myLastButtonInvoked = None
-
-        self.myParent = parent
-        self.myContainer1 = Frame(parent)
-        self.myContainer1.pack()
-
-        self.yellowButton = Button(self.myContainer1, command=self.yellowButtonClick)
-        self.yellowButton.configure(text="YELLOW", background="yellow")
-        self.yellowButton.pack(side=LEFT)
-
-        self.redButton = Button(self.myContainer1, command=self.redButtonClick)
-        self.redButton.configure(text="RED", background= "red")
-        self.redButton.pack(side=LEFT)
-
-        self.whiteButton = Button(self.myContainer1, command=self.whiteButtonClick)
-        self.whiteButton.configure(text="WHITE", background="white")
-        self.whiteButton.pack(side=LEFT)
-
-    def redButtonClick(self):
-        print "RED    button clicked.  Previous button invoked was", self.myLastButtonInvoked  ### 2
-        self.myLastButtonInvoked = "RED"  ### 1
-
-    def yellowButtonClick(self):
-        print "YELLOW button clicked.  Previous button invoked was", self.myLastButtonInvoked ### 2
-        self.myLastButtonInvoked = "YELLOW" ### 1
-
-    def whiteButtonClick(self):
-        print "WHITE  button clicked.  Previous button invoked was", self.myLastButtonInvoked ### 2
-        self.myLastButtonInvoked = "WHITE" ### 1
-
-
-print "\n"*100 # a simple way to clear the screen
-print "Starting..."
-root = Tk()
-myapp = MyApp(root)
-root.mainloop()
-print "... Done!"
+    from Tkinter import *
+    
+    class MyApp:
+        def __init__(self, parent):
+    
+            ### 1 -- At the outset, we haven't yet invoked any button handler.
+            self.myLastButtonInvoked = None
+    
+            self.myParent = parent
+            self.myContainer1 = Frame(parent)
+            self.myContainer1.pack()
+    
+            self.yellowButton = Button(self.myContainer1, command=self.yellowButtonClick)
+            self.yellowButton.configure(text="YELLOW", background="yellow")
+            self.yellowButton.pack(side=LEFT)
+    
+            self.redButton = Button(self.myContainer1, command=self.redButtonClick)
+            self.redButton.configure(text="RED", background= "red")
+            self.redButton.pack(side=LEFT)
+    
+            self.whiteButton = Button(self.myContainer1, command=self.whiteButtonClick)
+            self.whiteButton.configure(text="WHITE", background="white")
+            self.whiteButton.pack(side=LEFT)
+    
+        def redButtonClick(self):
+            print "RED    button clicked.  Previous button invoked was", self.myLastButtonInvoked  ### 2
+            self.myLastButtonInvoked = "RED"  ### 1
+    
+        def yellowButtonClick(self):
+            print "YELLOW button clicked.  Previous button invoked was", self.myLastButtonInvoked ### 2
+            self.myLastButtonInvoked = "YELLOW" ### 1
+    
+        def whiteButtonClick(self):
+            print "WHITE  button clicked.  Previous button invoked was", self.myLastButtonInvoked ### 2
+            self.myLastButtonInvoked = "WHITE" ### 1
+    
+    
+    print "\n"*100 # a simple way to clear the screen
+    print "Starting..."
+    root = Tk()
+    myapp = MyApp(root)
+    root.mainloop()
+    print "... Done!"
 
 ### tt077.py
 
@@ -878,11 +868,13 @@ More Advanced Features Of Command Binding
 In our program tt075.py, we used the "command" option to bind an event handler to a widget. For example, in that program the statement
 
     self.button1 = Button(self.myContainer1, command=self.button1Click)
+    
 bound the button1Click function to the button1 widget.
 
 And we used event binding to bind our buttons to the <Return> keyboard event.
 
     self.button1.bind("", self.button1Click_a)
+    
 In our earlier program, the event handlers for the two buttons performed quite different functions.
 
 But suppose that the situation was different. Suppose that we have several buttons, all of which should trigger essentially the *same* type of action. The best way to handle such a situation is to bind the events for all of the buttons to a single event handler. Each button would invoke the same handler routine, but pass it different arguments telling it what to do.
@@ -923,46 +915,46 @@ So run the program now, and see what happens. Then, in our next program, we will
 
 Program Source Code
 
-from Tkinter import *
-
-class MyApp:
-    def __init__(self, parent):
-        self.myParent = parent
-        self.myContainer1 = Frame(parent)
-        self.myContainer1.pack()
-
-        button_name = "OK"
-        self.button1 = Button(self.myContainer1,
-            command=self.buttonHandler(button_name, 1, "Good stuff!"))
-
-        # self.button1.bind("<Return>", self.buttonHandler_a(event, button_name, 1, "Good stuff!"))
-        self.button1.configure(text=button_name, background="green")
-        self.button1.pack(side=LEFT)
-        self.button1.focus_force()  # Put keyboard focus on button1
-
-        button_name = "Cancel"
-        self.button2 = Button(self.myContainer1,
-            command=self.buttonHandler(button_name, 2, "Bad  stuff!"))
-
-        # self.button2.bind("<Return>", self.buttonHandler_a(event, button_name, 2, "Bad  stuff!"))
-        self.button2.configure(text=button_name, background="red")
-        self.button2.pack(side=LEFT)
-
-
-    def buttonHandler(self, arg1, arg2, arg3):
-        print "    buttonHandler routine received arguments:", arg1.ljust(8), arg2, arg3
-
- 	def buttonHandler_a(self, event, arg1, arg2, arg3):
-        print "buttonHandler_a received event", event
-        self.buttonHandler(arg1, arg2, arg3)
-
-print "\n"*100 # clear the screen
-print "Starting program tt077."
-root = Tk()
-myapp = MyApp(root)
-print "Ready to start executing the event loop."
-root.mainloop()
-print "Finished       executing the event loop."
+    from Tkinter import *
+    
+    class MyApp:
+        def __init__(self, parent):
+            self.myParent = parent
+            self.myContainer1 = Frame(parent)
+            self.myContainer1.pack()
+    
+            button_name = "OK"
+            self.button1 = Button(self.myContainer1,
+                command=self.buttonHandler(button_name, 1, "Good stuff!"))
+    
+            # self.button1.bind("<Return>", self.buttonHandler_a(event, button_name, 1, "Good stuff!"))
+            self.button1.configure(text=button_name, background="green")
+            self.button1.pack(side=LEFT)
+            self.button1.focus_force()  # Put keyboard focus on button1
+    
+            button_name = "Cancel"
+            self.button2 = Button(self.myContainer1,
+                command=self.buttonHandler(button_name, 2, "Bad  stuff!"))
+    
+            # self.button2.bind("<Return>", self.buttonHandler_a(event, button_name, 2, "Bad  stuff!"))
+            self.button2.configure(text=button_name, background="red")
+            self.button2.pack(side=LEFT)
+    
+    
+        def buttonHandler(self, arg1, arg2, arg3):
+            print "    buttonHandler routine received arguments:", arg1.ljust(8), arg2, arg3
+    
+        def buttonHandler_a(self, event, arg1, arg2, arg3):
+            print "buttonHandler_a received event", event
+            self.buttonHandler(arg1, arg2, arg3)
+    
+    print "\n"*100 # clear the screen
+    print "Starting program tt077."
+    root = Tk()
+    myapp = MyApp(root)
+    print "Ready to start executing the event loop."
+    root.mainloop()
+    print "Finished       executing the event loop."
 
 ### tt078.py
 
@@ -970,8 +962,8 @@ Looking at the execution of the last program, we have to ask: "What's happening 
 
 The reason is that in a statement like
 
-  self.button1 = Button(self.myContainer1,
-       command = self.buttonHandler(button_name, 1, "Good stuff!"))
+    self.button1 = Button(self.myContainer1,command = self.buttonHandler(button_name, 1, "Good stuff!"))
+    
 we are calling the buttonHandler function, rather than asking that it be used as a callback. That's not what we intended to do, but that is what we're actually doing.
 
 Note That -->
@@ -1054,72 +1046,72 @@ In any case, whether you click on one of the button widgets with the mouse, or i
 
 Program Source Code
 
-from Tkinter import *
-
-class MyApp:
-    def __init__(self, parent):
-        self.myParent = parent
-        self.myContainer1 = Frame(parent)
-        self.myContainer1.pack()
-
-        #------------------ BUTTON #1 ------------------------------------
-        button_name = "OK"
-
-        # command binding
-        self.button1 = Button(self.myContainer1,
-            command = lambda
-            arg1=button_name, arg2=1, arg3="Good stuff!" :
-            self.buttonHandler(arg1, arg2, arg3)
-            )
-
-        # event binding -- passing the event as an argument
-        self.button1.bind("<Return>",
-            lambda
-            event, arg1=button_name, arg2=1, arg3="Good stuff!" :
-            self.buttonHandler_a(event, arg1, arg2, arg3)
-            )
-
-        self.button1.configure(text=button_name, background="green")
-        self.button1.pack(side=LEFT)
-        self.button1.focus_force()  # Put keyboard focus on button1
-
-        #------------------ BUTTON #2 ------------------------------------
-        button_name = "Cancel"
-
-        # command binding
-        self.button2 = Button(self.myContainer1,
-            command = lambda
-            arg1=button_name, arg2=2, arg3="Bad  stuff!":
-            self.buttonHandler(arg1, arg2, arg3)
-            )
-
-        # event binding -- without passing the event as an argument
-        self.button2.bind("<Return>",
-            lambda
-            event, arg1=button_name, arg2=2, arg3="Bad  stuff!" :
-            self.buttonHandler(arg1, arg2, arg3)
-            )
-
-        self.button2.configure(text=button_name, background="red")
-        self.button2.pack(side=LEFT)
-
-
-    def buttonHandler(self, argument1, argument2, argument3):
-        print "    buttonHandler routine received arguments:" \
-            , argument1.ljust(8), argument2, argument3
-
- 	def buttonHandler_a(self, event, argument1, argument2, argument3):
-        print "buttonHandler_a received event", event
-        self.buttonHandler(argument1, argument2, argument3)
-
-
-print "\n"*100 # clear the screen
-print "Starting program tt078."
-root = Tk()
-myapp = MyApp(root)
-print "Ready to start executing the event loop."
-root.mainloop()
-print "Finished       executing the event loop."
+    from Tkinter import *
+    
+    class MyApp:
+        def __init__(self, parent):
+            self.myParent = parent
+            self.myContainer1 = Frame(parent)
+            self.myContainer1.pack()
+    
+            #------------------ BUTTON #1 ------------------------------------
+            button_name = "OK"
+    
+            # command binding
+            self.button1 = Button(self.myContainer1,
+                command = lambda
+                arg1=button_name, arg2=1, arg3="Good stuff!" :
+                self.buttonHandler(arg1, arg2, arg3)
+                )
+    
+            # event binding -- passing the event as an argument
+            self.button1.bind("<Return>",
+                lambda
+                event, arg1=button_name, arg2=1, arg3="Good stuff!" :
+                self.buttonHandler_a(event, arg1, arg2, arg3)
+                )
+    
+            self.button1.configure(text=button_name, background="green")
+            self.button1.pack(side=LEFT)
+            self.button1.focus_force()  # Put keyboard focus on button1
+    
+            #------------------ BUTTON #2 ------------------------------------
+            button_name = "Cancel"
+    
+            # command binding
+            self.button2 = Button(self.myContainer1,
+                command = lambda
+                arg1=button_name, arg2=2, arg3="Bad  stuff!":
+                self.buttonHandler(arg1, arg2, arg3)
+                )
+    
+            # event binding -- without passing the event as an argument
+            self.button2.bind("<Return>",
+                lambda
+                event, arg1=button_name, arg2=2, arg3="Bad  stuff!" :
+                self.buttonHandler(arg1, arg2, arg3)
+                )
+    
+            self.button2.configure(text=button_name, background="red")
+            self.button2.pack(side=LEFT)
+    
+    
+        def buttonHandler(self, argument1, argument2, argument3):
+            print "    buttonHandler routine received arguments:" \
+                , argument1.ljust(8), argument2, argument3
+    
+        def buttonHandler_a(self, event, argument1, argument2, argument3):
+            print "buttonHandler_a received event", event
+            self.buttonHandler(argument1, argument2, argument3)
+    
+    
+    print "\n"*100 # clear the screen
+    print "Starting program tt078."
+    root = Tk()
+    myapp = MyApp(root)
+    print "Ready to start executing the event loop."
+    root.mainloop()
+    print "Finished       executing the event loop."
 
 ### tt079.py
 
@@ -1213,89 +1205,89 @@ If you run this program, it will behave exactly as the previous program did. We 
 
 Program Source Code
 
-from Tkinter import *
-
-# ---------- code for class: curry (begin) ---------------------
-class curry:
-    """from Scott David Daniels'recipe
-    "curry -- associating parameters with a function"
-    in the "Python Cookbook"
-    http://aspn.activestate.com/ASPN/Python/Cookbook/
-    """
-
-    def __init__(self, fun, *args, **kwargs):
-        self.fun = fun
-        self.pending = args[:]
-        self.kwargs = kwargs.copy()
-
-    def __call__(self, *args, **kwargs):
-        if kwargs and self.kwargs:
-            kw = self.kwargs.copy()
-            kw.update(kwargs)
-        else:
-            kw = kwargs or self.kwargs
-        return self.fun(*(self.pending + args), **kw)
-# ---------- code for class: curry (end) ---------------------
-
-
-# ---------- code for function: event_lambda (begin) --------
-def event_lambda(f, *args, **kwds ):
-    """A helper function that wraps lambda in a prettier interface.
-    Thanks to Chad Netzer for the code."""
-    return lambda event, f=f, args=args, kwds=kwds : f( *args, **kwds )
-# ---------- code for function: event_lambda (end) -----------
-
-
-class MyApp:
-    def __init__(self, parent):
-        self.myParent = parent
-        self.myContainer1 = Frame(parent)
-        self.myContainer1.pack()
-
-        button_name = "OK"
-
-        # command binding -- using curry
-        self.button1 = Button(self.myContainer1,
-           command = curry(self.buttonHandler, button_name, 1, "Good stuff!"))
-
-        # event binding -- using the event_lambda helper function
-        self.button1.bind("<Return>",
-            event_lambda( self.buttonHandler, button_name, 1, "Good stuff!" ) )
-
-        self.button1.configure(text=button_name, background="green")
-        self.button1.pack(side=LEFT)
-        self.button1.focus_force()  # Put keyboard focus on button1
-
-
-        button_name = "Cancel"
-
-        # command binding -- using curry
-        self.button2 = Button(self.myContainer1,
-            command = curry(self.buttonHandler, button_name, 2, "Bad  stuff!"))
-
-        # event binding -- using the event_lambda helper function in two steps
-        event_handler = event_lambda( self.buttonHandler, button_name, 2, "Bad  stuff!" )
-        self.button2.bind("<Return>", event_handler )
-
-        self.button2.configure(text=button_name, background="red")
-        self.button2.pack(side=LEFT)
-
-
-    def buttonHandler(self, argument1, argument2, argument3):
-        print "    buttonHandler routine received arguments:", \
-            argument1.ljust(8), argument2, argument3
-
-    def buttonHandler_a(self, event, argument1, argument2, argument3):
-        print "buttonHandler_a received event", event
-        self.buttonHandler(argument1, argument2, argument3)
-
-print "\n"*100 # clear the screen
-print "Starting program tt079."
-root = Tk()
-myapp = MyApp(root)
-print "Ready to start executing the event loop."
-root.mainloop()
-print "Finished       executing the event loop."
+    from Tkinter import *
+    
+    ---------- code for class: curry (begin) ---------------------
+    class curry:
+        """from Scott David Daniels'recipe
+        "curry -- associating parameters with a function"
+        in the "Python Cookbook"
+        http://aspn.activestate.com/ASPN/Python/Cookbook/
+        """
+    
+        def __init__(self, fun, *args, **kwargs):
+            self.fun = fun
+            self.pending = args[:]
+            self.kwargs = kwargs.copy()
+    
+        def __call__(self, *args, **kwargs):
+            if kwargs and self.kwargs:
+                kw = self.kwargs.copy()
+                kw.update(kwargs)
+            else:
+                kw = kwargs or self.kwargs
+            return self.fun(*(self.pending + args), **kw)
+    ---------- code for class: curry (end) ---------------------
+    
+    
+    ---------- code for function: event_lambda (begin) --------
+    def event_lambda(f, *args, **kwds ):
+        """A helper function that wraps lambda in a prettier interface.
+        Thanks to Chad Netzer for the code."""
+        return lambda event, f=f, args=args, kwds=kwds : f( *args, **kwds )
+    ---------- code for function: event_lambda (end) -----------
+    
+    
+    class MyApp:
+        def __init__(self, parent):
+            self.myParent = parent
+            self.myContainer1 = Frame(parent)
+            self.myContainer1.pack()
+    
+            button_name = "OK"
+    
+            # command binding -- using curry
+            self.button1 = Button(self.myContainer1,
+               command = curry(self.buttonHandler, button_name, 1, "Good stuff!"))
+    
+            # event binding -- using the event_lambda helper function
+            self.button1.bind("<Return>",
+                event_lambda( self.buttonHandler, button_name, 1, "Good stuff!" ) )
+    
+            self.button1.configure(text=button_name, background="green")
+            self.button1.pack(side=LEFT)
+            self.button1.focus_force()  # Put keyboard focus on button1
+    
+    
+            button_name = "Cancel"
+    
+            # command binding -- using curry
+            self.button2 = Button(self.myContainer1,
+                command = curry(self.buttonHandler, button_name, 2, "Bad  stuff!"))
+    
+            # event binding -- using the event_lambda helper function in two steps
+            event_handler = event_lambda( self.buttonHandler, button_name, 2, "Bad  stuff!" )
+            self.button2.bind("<Return>", event_handler )
+    
+            self.button2.configure(text=button_name, background="red")
+            self.button2.pack(side=LEFT)
+    
+    
+        def buttonHandler(self, argument1, argument2, argument3):
+            print "    buttonHandler routine received arguments:", \
+                argument1.ljust(8), argument2, argument3
+    
+        def buttonHandler_a(self, event, argument1, argument2, argument3):
+            print "buttonHandler_a received event", event
+            self.buttonHandler(argument1, argument2, argument3)
+    
+    print "\n"*100 # clear the screen
+    print "Starting program tt079."
+    root = Tk()
+    myapp = MyApp(root)
+    print "Ready to start executing the event loop."
+    root.mainloop()
+    print "Finished       executing the event loop."
 
 ### tt080.py
 
@@ -1334,77 +1326,75 @@ When you run this program, you will see two buttons. But now there they should b
 
 Program Source Code
 
-from Tkinter import *
+    from Tkinter import *
+    
+    class MyApp:
+        def __init__(self, parent):
+    
+            #------ constants for controlling layout ------
+            button_width = 6      ### (1)
+    
+            button_padx = "2m"    ### (2)
+            button_pady = "1m"    ### (2)
+    
+            buttons_frame_padx =  "3m"   ### (3)
+            buttons_frame_pady =  "2m"   ### (3)
+            buttons_frame_ipadx = "3m"   ### (3)
+            buttons_frame_ipady = "1m"   ### (3)
+            # -------------- end constants ----------------
+    
+            self.myParent = parent
+            self.buttons_frame = Frame(parent)
+    
+            self.buttons_frame.pack(    ### (4)
+                ipadx=buttons_frame_ipadx,  ### (3)
+                ipady=buttons_frame_ipady,  ### (3)
+                padx=buttons_frame_padx,    ### (3)
+                pady=buttons_frame_pady,    ### (3)
+                )
+    
+    
+            self.button1 = Button(self.buttons_frame, command=self.button1Click)
+            self.button1.configure(text="OK", background= "green")
+            self.button1.focus_force()
+            self.button1.configure(
+                width=button_width,  ### (1)
+                padx=button_padx,    ### (2)
+                pady=button_pady     ### (2)
+                )
+    
+            self.button1.pack(side=LEFT)
+            self.button1.bind("<Return>", self.button1Click_a)
+    
+            self.button2 = Button(self.buttons_frame, command=self.button2Click)
+            self.button2.configure(text="Cancel", background="red")
+            self.button2.configure(
+                width=button_width,  ### (1)
+                padx=button_padx,    ### (2)
+                pady=button_pady     ### (2)
+                )
+    
+            self.button2.pack(side=RIGHT)
+            self.button2.bind("<Return>", self.button2Click_a)
+    
+        def button1Click(self):
+            if self.button1["background"] == "green":
+                self.button1["background"] = "yellow"
+            else:
+                self.button1["background"] = "green"
+    
+        def button2Click(self):
+            self.myParent.destroy()
+    
+        def button1Click_a(self, event):
+            self.button1Click()
+    
+        def button2Click_a(self, event):
+            self.button2Click()
 
-class MyApp:
-    def __init__(self, parent):
-
-        #------ constants for controlling layout ------
-        button_width = 6      ### (1)
-
-        button_padx = "2m"    ### (2)
-        button_pady = "1m"    ### (2)
-
-        buttons_frame_padx =  "3m"   ### (3)
-        buttons_frame_pady =  "2m"   ### (3)
-        buttons_frame_ipadx = "3m"   ### (3)
-        buttons_frame_ipady = "1m"   ### (3)
-        # -------------- end constants ----------------
-
-        self.myParent = parent
-        self.buttons_frame = Frame(parent)
-
-        self.buttons_frame.pack(    ### (4)
-            ipadx=buttons_frame_ipadx,  ### (3)
-            ipady=buttons_frame_ipady,  ### (3)
-            padx=buttons_frame_padx,    ### (3)
-            pady=buttons_frame_pady,    ### (3)
-            )
-
-
-        self.button1 = Button(self.buttons_frame, command=self.button1Click)
-        self.button1.configure(text="OK", background= "green")
-        self.button1.focus_force()
-        self.button1.configure(
-            width=button_width,  ### (1)
-            padx=button_padx,    ### (2)
-            pady=button_pady     ### (2)
-            )
-
-        self.button1.pack(side=LEFT)
-        self.button1.bind("<Return>", self.button1Click_a)
-
-        self.button2 = Button(self.buttons_frame, command=self.button2Click)
-        self.button2.configure(text="Cancel", background="red")
-        self.button2.configure(
-            width=button_width,  ### (1)
-            padx=button_padx,    ### (2)
-            pady=button_pady     ### (2)
-            )
-
-        self.button2.pack(side=RIGHT)
-        self.button2.bind("<Return>", self.button2Click_a)
-
-    def button1Click(self):
-        if self.button1["background"] == "green":
-            self.button1["background"] = "yellow"
-        else:
-            self.button1["background"] = "green"
-
-    def button2Click(self):
-        self.myParent.destroy()
-
-    def button1Click_a(self, event):
-        self.button1Click()
-
-    def button2Click_a(self, event):
-        self.button2Click()
-
-
-
-root = Tk()
-myapp = MyApp(root)
-root.mainloop()
+    root = Tk()
+    myapp = MyApp(root)
+    root.mainloop()
 
 ### tt090.py
 
@@ -1426,133 +1416,133 @@ When you run this program, you will see the different frames, with different bac
 
 Program Source Code
 
-from Tkinter import *
-
-class MyApp:
-    def __init__(self, parent):
-
-        self.myParent = parent
-
-        ### Our topmost frame is called myContainer1
-        self.myContainer1 = Frame(parent) ###
-        self.myContainer1.pack()
-
-        #------ constants for controlling layout ------
-        button_width = 6      ### (1)
-
-        button_padx = "2m"    ### (2)
-        button_pady = "1m"    ### (2)
-
-        buttons_frame_padx =  "3m"   ### (3)
-        buttons_frame_pady =  "2m"   ### (3)
-        buttons_frame_ipadx = "3m"   ### (3)
-        buttons_frame_ipady = "1m"   ### (3)
-        # -------------- end constants ----------------
-
-        ### We will use VERTICAL (top/bottom) orientation inside myContainer1.
-        ### Inside myContainer1, first we create buttons_frame.
-        ### Then we create top_frame and bottom_frame.
-        ### These will be our demonstration frames.
-
-        # buttons frame
-        self.buttons_frame = Frame(self.myContainer1) ###
-        self.buttons_frame.pack(
-            side=TOP,   ###
-            ipadx=buttons_frame_ipadx,
-            ipady=buttons_frame_ipady,
-            padx=buttons_frame_padx,
-            pady=buttons_frame_pady,
-            )
-
-        # top frame
-        self.top_frame = Frame(self.myContainer1)
-        self.top_frame.pack(side=TOP,
-            fill=BOTH,
-            expand=YES,
-            )  ###
-
-        # bottom frame
-        self.bottom_frame = Frame(self.myContainer1,
-            borderwidth=5,  relief=RIDGE,
-            height=50,
-            background="white",
-            ) ###
-        self.bottom_frame.pack(side=TOP,
-            fill=BOTH,
-            expand=YES,
-            )  ###
-
-
-        ### Now we will put two more frames, left_frame and right_frame,
-        ### inside top_frame.  We will use HORIZONTAL (left/right)
-        ### orientation within top_frame.
-
-        # left_frame
-        self.left_frame = Frame(self.top_frame, background="red",
-            borderwidth=5,  relief=RIDGE,
-            height=250,
-            width=50,
-            ) ###
-        self.left_frame.pack(side=LEFT,
-            fill=BOTH,
-            expand=YES,
-            )  ###
-
-
-        ### right_frame
-        self.right_frame = Frame(self.top_frame, background="tan",
-            borderwidth=5,  relief=RIDGE,
-            width=250,
-            )
-        self.right_frame.pack(side=RIGHT,
-            fill=BOTH,
-            expand=YES,
-            )  ###
-
-
-        # now we add the buttons to the buttons_frame
-        self.button1 = Button(self.buttons_frame, command=self.button1Click)
-        self.button1.configure(text="OK", background= "green")
-        self.button1.focus_force()
-        self.button1.configure(
-            width=button_width,  ### (1)
-            padx=button_padx,    ### (2)
-            pady=button_pady     ### (2)
-            )
-
-        self.button1.pack(side=LEFT)
-        self.button1.bind("<Return>", self.button1Click_a)
-
-        self.button2 = Button(self.buttons_frame, command=self.button2Click)
-        self.button2.configure(text="Cancel", background="red")
-        self.button2.configure(
-            width=button_width,  ### (1)
-            padx=button_padx,    ### (2)
-            pady=button_pady     ### (2)
-            )
-
-        self.button2.pack(side=RIGHT)
-        self.button2.bind("<Return>", self.button2Click_a)
-
-    def button1Click(self):
-        if self.button1["background"] == "green":
-            self.button1["background"] = "yellow"
-        else:
-            self.button1["background"] = "green"
-
-    def button2Click(self):
-        self.myParent.destroy()
-
-    def button1Click_a(self, event):
-        self.button1Click()
-
-    def button2Click_a(self, event):
-        self.button2Click()
-
-
-root = Tk()
-myapp = MyApp(root)
-root.mainloop()
+    from Tkinter import *
+    
+    class MyApp:
+        def __init__(self, parent):
+    
+            self.myParent = parent
+    
+            ### Our topmost frame is called myContainer1
+            self.myContainer1 = Frame(parent) ###
+            self.myContainer1.pack()
+    
+            #------ constants for controlling layout ------
+            button_width = 6      ### (1)
+    
+            button_padx = "2m"    ### (2)
+            button_pady = "1m"    ### (2)
+    
+            buttons_frame_padx =  "3m"   ### (3)
+            buttons_frame_pady =  "2m"   ### (3)
+            buttons_frame_ipadx = "3m"   ### (3)
+            buttons_frame_ipady = "1m"   ### (3)
+            # -------------- end constants ----------------
+    
+            ### We will use VERTICAL (top/bottom) orientation inside myContainer1.
+            ### Inside myContainer1, first we create buttons_frame.
+            ### Then we create top_frame and bottom_frame.
+            ### These will be our demonstration frames.
+    
+            # buttons frame
+            self.buttons_frame = Frame(self.myContainer1) ###
+            self.buttons_frame.pack(
+                side=TOP,   ###
+                ipadx=buttons_frame_ipadx,
+                ipady=buttons_frame_ipady,
+                padx=buttons_frame_padx,
+                pady=buttons_frame_pady,
+                )
+    
+            # top frame
+            self.top_frame = Frame(self.myContainer1)
+            self.top_frame.pack(side=TOP,
+                fill=BOTH,
+                expand=YES,
+                )  ###
+    
+            # bottom frame
+            self.bottom_frame = Frame(self.myContainer1,
+                borderwidth=5,  relief=RIDGE,
+                height=50,
+                background="white",
+                ) ###
+            self.bottom_frame.pack(side=TOP,
+                fill=BOTH,
+                expand=YES,
+                )  ###
+    
+    
+            ### Now we will put two more frames, left_frame and right_frame,
+            ### inside top_frame.  We will use HORIZONTAL (left/right)
+            ### orientation within top_frame.
+    
+            # left_frame
+            self.left_frame = Frame(self.top_frame, background="red",
+                borderwidth=5,  relief=RIDGE,
+                height=250,
+                width=50,
+                ) ###
+            self.left_frame.pack(side=LEFT,
+                fill=BOTH,
+                expand=YES,
+                )  ###
+    
+    
+            ### right_frame
+            self.right_frame = Frame(self.top_frame, background="tan",
+                borderwidth=5,  relief=RIDGE,
+                width=250,
+                )
+            self.right_frame.pack(side=RIGHT,
+                fill=BOTH,
+                expand=YES,
+                )  ###
+    
+    
+            # now we add the buttons to the buttons_frame
+            self.button1 = Button(self.buttons_frame, command=self.button1Click)
+            self.button1.configure(text="OK", background= "green")
+            self.button1.focus_force()
+            self.button1.configure(
+                width=button_width,  ### (1)
+                padx=button_padx,    ### (2)
+                pady=button_pady     ### (2)
+                )
+    
+            self.button1.pack(side=LEFT)
+            self.button1.bind("<Return>", self.button1Click_a)
+    
+            self.button2 = Button(self.buttons_frame, command=self.button2Click)
+            self.button2.configure(text="Cancel", background="red")
+            self.button2.configure(
+                width=button_width,  ### (1)
+                padx=button_padx,    ### (2)
+                pady=button_pady     ### (2)
+                )
+    
+            self.button2.pack(side=RIGHT)
+            self.button2.bind("<Return>", self.button2Click_a)
+    
+        def button1Click(self):
+            if self.button1["background"] == "green":
+                self.button1["background"] = "yellow"
+            else:
+                self.button1["background"] = "green"
+    
+        def button2Click(self):
+            self.myParent.destroy()
+    
+        def button1Click_a(self, event):
+            self.button1Click()
+    
+        def button2Click_a(self, event):
+            self.button2Click()
+    
+    
+    root = Tk()
+    myapp = MyApp(root)
+    root.mainloop()
 
 ### tt095.py
 
@@ -1592,30 +1582,30 @@ In case 4, we again show the frame with three buttons in it, but this time speci
 
 Program Source Code
 
-from Tkinter import *
-
-class App:
-    def __init__(self, root, use_geometry, show_buttons):
-        fm = Frame(root, width=300, height=200, bg="blue")
-        fm.pack(side=TOP, expand=NO, fill=NONE)
-
-        if use_geometry:
-            root.geometry("600x400")  ### (1) Note geometry Window Manager method
-
-        if show_buttons:
-            Button(fm, text="Button 1", width=10).pack(side=LEFT)
-            Button(fm, text="Button 2", width=10).pack(side=LEFT)
-            Button(fm, text="Button 3", width=10).pack(side=LEFT)
-
-
-case = 0
-for use_geometry in (0, 1):
-    for show_buttons in (0,1):
-        case = case + 1
-        root = Tk()
-        root.wm_title("Case " + str(case))  ### (2) Note wm_title Window Manager method
-        display = App(root, use_geometry, show_buttons)
-        root.mainloop()
+    from Tkinter import *
+    
+    class App:
+        def __init__(self, root, use_geometry, show_buttons):
+            fm = Frame(root, width=300, height=200, bg="blue")
+            fm.pack(side=TOP, expand=NO, fill=NONE)
+    
+            if use_geometry:
+                root.geometry("600x400")  ### (1) Note geometry Window Manager method
+    
+            if show_buttons:
+                Button(fm, text="Button 1", width=10).pack(side=LEFT)
+                Button(fm, text="Button 2", width=10).pack(side=LEFT)
+                Button(fm, text="Button 3", width=10).pack(side=LEFT)
+    
+    
+    case = 0
+    for use_geometry in (0, 1):
+        for show_buttons in (0,1):
+            case = case + 1
+            root = Tk()
+            root.wm_title("Case " + str(case))  ### (2) Note wm_title Window Manager method
+            display = App(root, use_geometry, show_buttons)
+            root.mainloop()
 
 
 ### tt100.py
@@ -1707,214 +1697,214 @@ This will allow you to see how the frames are actually arranging themselves. Oft
 
 Program Source Code
 
-from Tkinter import *
-
-class MyApp:
-    def __init__(self, parent):
-
-        #------ constants for controlling layout of buttons ------
-        button_width = 6
-        button_padx = "2m"
-        button_pady = "1m"
-        buttons_frame_padx =  "3m"
-        buttons_frame_pady =  "2m"
-        buttons_frame_ipadx = "3m"
-        buttons_frame_ipady = "1m"
-        # -------------- end constants ----------------
-
-
-        # set up Tkinter variables, to be controlled by the radio buttons
-        self.button_name   = StringVar()
-        self.button_name.set("C")
-
-        self.side_option = StringVar()
-        self.side_option.set(LEFT)
-
-        self.fill_option   = StringVar()
-        self.fill_option.set(NONE)
-
-        self.expand_option = StringVar()
-        self.expand_option.set(YES)
-
-        self.anchor_option = StringVar()
-        self.anchor_option.set(CENTER)
-
-
-        # -------------- end constants ----------------
-
-        self.myParent = parent
-        self.myParent.geometry("640x400")
-
-        ### Our topmost frame is called myContainer1
-        self.myContainer1 = Frame(parent) ###
-        self.myContainer1.pack(expand=YES, fill=BOTH)
-
-
-        ### We will use HORIZONTAL (left/right) orientation inside myContainer1.
-        ### Inside myContainer1, we create control_frame and demo_frame.
-
-        # control frame - basically everything except the demo frame
-        self.control_frame = Frame(self.myContainer1) ###
-        self.control_frame.pack(side=LEFT, expand=NO,  padx=10, pady=5, ipadx=5, ipady=5)
-
-        # inside control_frame we create a header label
-        # and a buttons_frame at the top,
-        # and demo_frame at the bottom
-
-        myMessage="This window shows the effects of the \nexpand, fill, and anchor packing options.\n"
-        Label(self.control_frame, text=myMessage, justify=LEFT).pack(side=TOP, anchor=W)
-
-        # buttons frame
-        self.buttons_frame = Frame(self.control_frame) ###
-        self.buttons_frame.pack(side=TOP, expand=NO, fill=Y, ipadx=5, ipady=5)
-
-        # demo frame
-        self.demo_frame = Frame(self.myContainer1) ###
-        self.demo_frame.pack(side=RIGHT, expand=YES, fill=BOTH)
-
-
-        ### Inside the demo frame, we create top_frame and bottom_frame.
-        ### These will be our demonstration frames.
-        # top frame
-        self.top_frame = Frame(self.demo_frame)
-        self.top_frame.pack(side=TOP, expand=YES, fill=BOTH)  ###
-
-        # bottom frame
-        self.bottom_frame = Frame(self.demo_frame,
-            borderwidth=5, 	relief=RIDGE,
-            height=50,
-            bg="cyan",
-            ) ###
-        self.bottom_frame.pack(side=TOP, fill=X)
-
-
-        ### Now we will put two more frames, left_frame and right_frame,
-        ### inside top_frame.  We will use HORIZONTAL (left/right)
-        ### orientation within top_frame.
-
-        # left_frame
-        self.left_frame = Frame(self.top_frame,	background="red",
-            borderwidth=5, 	relief=RIDGE,
-            width=50,
-            ) ###
-        self.left_frame.pack(side=LEFT, expand=NO, fill=Y)
-
-
-        ### right_frame
-        self.right_frame = Frame(self.top_frame, background="tan",
-            borderwidth=5, 	relief=RIDGE,
-            width=250
-            )
-        self.right_frame.pack(side=RIGHT, expand=YES, fill=BOTH)
-
-
-        # now put a button in each of the interesting frames
-        button_names = ["A", "B", "C"]
-        side_options = [LEFT, TOP, RIGHT, BOTTOM]
-        fill_options = [X, Y, BOTH, NONE]
-        expand_options = [YES, NO]
-        anchor_options = [NW, N, NE, E, SE, S, SW, W, CENTER]
-
-
-        self.buttonA = Button(self.bottom_frame, text="A")
-        self.buttonA.pack()
-        self.buttonB = Button(self.left_frame, text="B")
-        self.buttonB.pack()
-        self.buttonC = Button(self.right_frame, text="C")
-        self.buttonC.pack()
-        self.button_with_name = {"A":self.buttonA, "B":self.buttonB, "C":self.buttonC}
-
-        # now we some subframes to the buttons_frame
-        self.button_names_frame   = Frame(self.buttons_frame, borderwidth=5)
-        self.side_options_frame   = Frame(self.buttons_frame, borderwidth=5)
-        self.fill_options_frame   = Frame(self.buttons_frame, borderwidth=5)
-        self.expand_options_frame = Frame(self.buttons_frame, borderwidth=5)
-        self.anchor_options_frame = Frame(self.buttons_frame, borderwidth=5)
-
-        self.button_names_frame.pack(  side=LEFT, expand=YES, fill=Y, anchor=N)
-        self.side_options_frame.pack(  side=LEFT, expand=YES, anchor=N)
-        self.fill_options_frame.pack(  side=LEFT, expand=YES, anchor=N)
-        self.expand_options_frame.pack(side=LEFT, expand=YES, anchor=N)
-        self.anchor_options_frame.pack(side=LEFT, expand=YES, anchor=N)
-
-        Label(self.button_names_frame, text="\nButton").pack()
-        Label(self.side_options_frame, text="Side\nOption").pack()
-        Label(self.fill_options_frame, text="Fill\nOption").pack()
-        Label(self.expand_options_frame, text="Expand\nOption").pack()
-        Label(self.anchor_options_frame, text="Anchor\nOption").pack()
-
-        for option in button_names:
-            button = Radiobutton(self.button_names_frame, text=str(option), indicatoron=1,
-                value=option, command=self.button_refresh, variable=self.button_name)
-            button["width"] = button_width
-            button.pack(side=TOP)
-
-        for option in side_options:
-            button = Radiobutton(self.side_options_frame, text=str(option), indicatoron=0,
-                value=option, command=self.demo_update, variable=self.side_option)
-            button["width"] = button_width
-            button.pack(side=TOP)
-
-        for option in fill_options:
-            button = Radiobutton(self.fill_options_frame, text=str(option), indicatoron=0,
-                value=option, command=self.demo_update, variable=self.fill_option)
-            button["width"] = button_width
-            button.pack(side=TOP)
-
-        for option in expand_options:
-            button = Radiobutton(self.expand_options_frame, text=str(option), indicatoron=0,
-                value=option, command=self.demo_update, variable=self.expand_option)
-            button["width"] = button_width
-            button.pack(side=TOP)
-
-        for option in anchor_options:
-            button = Radiobutton(self.anchor_options_frame, text=str(option), indicatoron=0,
-                value=option, command=self.demo_update, variable=self.anchor_option)
-            button["width"] = button_width
-            button.pack(side=TOP)
-
-        self.cancelButtonFrame = Frame(self.button_names_frame)
-        self.cancelButtonFrame.pack(side=BOTTOM, expand=YES, anchor=SW)
-
-        self.cancelButton = Button(self.cancelButtonFrame,
-            text="Cancel", background="red",
-            width=button_width,
-            padx=button_padx,
-            pady=button_pady
-            )
-        self.cancelButton.pack(side=BOTTOM, anchor=S)
-
-
-
-        self.cancelButton.bind("<Button-1>", self.cancelButtonClick)
-        self.cancelButton.bind("<Return>", self.cancelButtonClick)
-
-        # set up the buttons in their initial position
-        self.demo_update()
-
-
-    def button_refresh(self):
-        button = self.button_with_name[self.button_name.get()]
-        properties = button.pack_info()
-        self.fill_option.set  (  properties["fill"] )
-        self.side_option.set  (  properties["side"] )
-        self.expand_option.set(  properties["expand"] )
-        self.anchor_option.set(  properties["anchor"] )
-
-
-    def demo_update(self):
-        button = self.button_with_name[self.button_name.get()]
-        button.pack(fill=self.fill_option.get()
-            , side=self.side_option.get()
-            , expand=self.expand_option.get()
-            , anchor=self.anchor_option.get()
-            )
-
-
-    def cancelButtonClick(self, event):
-        self.myParent.destroy()
-
-
-root = Tk()
-myapp = MyApp(root)
-root.mainloop()
+    from Tkinter import *
+    
+    class MyApp:
+        def __init__(self, parent):
+    
+            #------ constants for controlling layout of buttons ------
+            button_width = 6
+            button_padx = "2m"
+            button_pady = "1m"
+            buttons_frame_padx =  "3m"
+            buttons_frame_pady =  "2m"
+            buttons_frame_ipadx = "3m"
+            buttons_frame_ipady = "1m"
+            # -------------- end constants ----------------
+    
+    
+            # set up Tkinter variables, to be controlled by the radio buttons
+            self.button_name   = StringVar()
+            self.button_name.set("C")
+    
+            self.side_option = StringVar()
+            self.side_option.set(LEFT)
+    
+            self.fill_option   = StringVar()
+            self.fill_option.set(NONE)
+    
+            self.expand_option = StringVar()
+            self.expand_option.set(YES)
+    
+            self.anchor_option = StringVar()
+            self.anchor_option.set(CENTER)
+    
+    
+            # -------------- end constants ----------------
+    
+            self.myParent = parent
+            self.myParent.geometry("640x400")
+    
+            ### Our topmost frame is called myContainer1
+            self.myContainer1 = Frame(parent) ###
+            self.myContainer1.pack(expand=YES, fill=BOTH)
+    
+    
+            ### We will use HORIZONTAL (left/right) orientation inside myContainer1.
+            ### Inside myContainer1, we create control_frame and demo_frame.
+    
+            # control frame - basically everything except the demo frame
+            self.control_frame = Frame(self.myContainer1) ###
+            self.control_frame.pack(side=LEFT, expand=NO,  padx=10, pady=5, ipadx=5, ipady=5)
+    
+            # inside control_frame we create a header label
+            # and a buttons_frame at the top,
+            # and demo_frame at the bottom
+    
+            myMessage="This window shows the effects of the \nexpand, fill, and anchor packing options.\n"
+            Label(self.control_frame, text=myMessage, justify=LEFT).pack(side=TOP, anchor=W)
+    
+            # buttons frame
+            self.buttons_frame = Frame(self.control_frame) ###
+            self.buttons_frame.pack(side=TOP, expand=NO, fill=Y, ipadx=5, ipady=5)
+    
+            # demo frame
+            self.demo_frame = Frame(self.myContainer1) ###
+            self.demo_frame.pack(side=RIGHT, expand=YES, fill=BOTH)
+    
+    
+            ### Inside the demo frame, we create top_frame and bottom_frame.
+            ### These will be our demonstration frames.
+            # top frame
+            self.top_frame = Frame(self.demo_frame)
+            self.top_frame.pack(side=TOP, expand=YES, fill=BOTH)  ###
+    
+            # bottom frame
+            self.bottom_frame = Frame(self.demo_frame,
+                borderwidth=5, 	relief=RIDGE,
+                height=50,
+                bg="cyan",
+                ) ###
+            self.bottom_frame.pack(side=TOP, fill=X)
+    
+    
+            ### Now we will put two more frames, left_frame and right_frame,
+            ### inside top_frame.  We will use HORIZONTAL (left/right)
+            ### orientation within top_frame.
+    
+            # left_frame
+            self.left_frame = Frame(self.top_frame,	background="red",
+                borderwidth=5, 	relief=RIDGE,
+                width=50,
+                ) ###
+            self.left_frame.pack(side=LEFT, expand=NO, fill=Y)
+    
+    
+            ### right_frame
+            self.right_frame = Frame(self.top_frame, background="tan",
+                borderwidth=5, 	relief=RIDGE,
+                width=250
+                )
+            self.right_frame.pack(side=RIGHT, expand=YES, fill=BOTH)
+    
+    
+            # now put a button in each of the interesting frames
+            button_names = ["A", "B", "C"]
+            side_options = [LEFT, TOP, RIGHT, BOTTOM]
+            fill_options = [X, Y, BOTH, NONE]
+            expand_options = [YES, NO]
+            anchor_options = [NW, N, NE, E, SE, S, SW, W, CENTER]
+    
+    
+            self.buttonA = Button(self.bottom_frame, text="A")
+            self.buttonA.pack()
+            self.buttonB = Button(self.left_frame, text="B")
+            self.buttonB.pack()
+            self.buttonC = Button(self.right_frame, text="C")
+            self.buttonC.pack()
+            self.button_with_name = {"A":self.buttonA, "B":self.buttonB, "C":self.buttonC}
+    
+            # now we some subframes to the buttons_frame
+            self.button_names_frame   = Frame(self.buttons_frame, borderwidth=5)
+            self.side_options_frame   = Frame(self.buttons_frame, borderwidth=5)
+            self.fill_options_frame   = Frame(self.buttons_frame, borderwidth=5)
+            self.expand_options_frame = Frame(self.buttons_frame, borderwidth=5)
+            self.anchor_options_frame = Frame(self.buttons_frame, borderwidth=5)
+    
+            self.button_names_frame.pack(  side=LEFT, expand=YES, fill=Y, anchor=N)
+            self.side_options_frame.pack(  side=LEFT, expand=YES, anchor=N)
+            self.fill_options_frame.pack(  side=LEFT, expand=YES, anchor=N)
+            self.expand_options_frame.pack(side=LEFT, expand=YES, anchor=N)
+            self.anchor_options_frame.pack(side=LEFT, expand=YES, anchor=N)
+    
+            Label(self.button_names_frame, text="\nButton").pack()
+            Label(self.side_options_frame, text="Side\nOption").pack()
+            Label(self.fill_options_frame, text="Fill\nOption").pack()
+            Label(self.expand_options_frame, text="Expand\nOption").pack()
+            Label(self.anchor_options_frame, text="Anchor\nOption").pack()
+    
+            for option in button_names:
+                button = Radiobutton(self.button_names_frame, text=str(option), indicatoron=1,
+                    value=option, command=self.button_refresh, variable=self.button_name)
+                button["width"] = button_width
+                button.pack(side=TOP)
+    
+            for option in side_options:
+                button = Radiobutton(self.side_options_frame, text=str(option), indicatoron=0,
+                    value=option, command=self.demo_update, variable=self.side_option)
+                button["width"] = button_width
+                button.pack(side=TOP)
+    
+            for option in fill_options:
+                button = Radiobutton(self.fill_options_frame, text=str(option), indicatoron=0,
+                    value=option, command=self.demo_update, variable=self.fill_option)
+                button["width"] = button_width
+                button.pack(side=TOP)
+    
+            for option in expand_options:
+                button = Radiobutton(self.expand_options_frame, text=str(option), indicatoron=0,
+                    value=option, command=self.demo_update, variable=self.expand_option)
+                button["width"] = button_width
+                button.pack(side=TOP)
+    
+            for option in anchor_options:
+                button = Radiobutton(self.anchor_options_frame, text=str(option), indicatoron=0,
+                    value=option, command=self.demo_update, variable=self.anchor_option)
+                button["width"] = button_width
+                button.pack(side=TOP)
+    
+            self.cancelButtonFrame = Frame(self.button_names_frame)
+            self.cancelButtonFrame.pack(side=BOTTOM, expand=YES, anchor=SW)
+    
+            self.cancelButton = Button(self.cancelButtonFrame,
+                text="Cancel", background="red",
+                width=button_width,
+                padx=button_padx,
+                pady=button_pady
+                )
+            self.cancelButton.pack(side=BOTTOM, anchor=S)
+    
+    
+    
+            self.cancelButton.bind("<Button-1>", self.cancelButtonClick)
+            self.cancelButton.bind("<Return>", self.cancelButtonClick)
+    
+            # set up the buttons in their initial position
+            self.demo_update()
+    
+    
+        def button_refresh(self):
+            button = self.button_with_name[self.button_name.get()]
+            properties = button.pack_info()
+            self.fill_option.set  (  properties["fill"] )
+            self.side_option.set  (  properties["side"] )
+            self.expand_option.set(  properties["expand"] )
+            self.anchor_option.set(  properties["anchor"] )
+    
+    
+        def demo_update(self):
+            button = self.button_with_name[self.button_name.get()]
+            button.pack(fill=self.fill_option.get()
+                , side=self.side_option.get()
+                , expand=self.expand_option.get()
+                , anchor=self.anchor_option.get()
+                )
+    
+    
+        def cancelButtonClick(self, event):
+            self.myParent.destroy()
+    
+    
+    root = Tk()
+    myapp = MyApp(root)
+    root.mainloop()
