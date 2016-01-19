@@ -18,7 +18,7 @@ class DeQueue(object):
 
     def append_left(self, data):
         s = LinkNode(data, None, None)
-        if self._left == None and self._right == None:
+        if self._left is None and self._right is None:
             self._left = s
             self._right = s
         else:
@@ -28,7 +28,7 @@ class DeQueue(object):
 
     def append_right(self, data):
         s = LinkNode(data, None, None)
-        if self._left == None and self._right == None:
+        if self._left is None and self._right is None:
             self._left = s
             self._right = s
         else:
