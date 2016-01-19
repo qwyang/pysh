@@ -14,7 +14,7 @@ class Queue(object):
                     print 'Q',
                 else:
                     print '-',
-            print 
+            print
         print
         self.count += 1
 
@@ -36,10 +36,11 @@ class Queue(object):
                 if self.checkValid(col, p):
                     self.columns[col] = p
                     self.backTrack(col + 1)
-                    #if self.found == True:
+                    # if self.found == True:
                     #    break
-            #else:
-            #    self.backTrack(col - 1)
+                    # else:
+                    #    self.backTrack(col - 1)
+
 
 if __name__ == "__main__":
     q = Queue(8)

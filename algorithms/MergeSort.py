@@ -33,9 +33,10 @@ def mergeSort(array, start, end):
     middle = (start + end) / 2
     # conquer
     x = mergeSort(array, start, middle)
-    y = mergeSort(array, middle+1, end)
+    y = mergeSort(array, middle + 1, end)
     # merge
     return merge(x, y)
+
 
 if __name__ == '__main__':
     array = random_array(20)
