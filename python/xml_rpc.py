@@ -21,6 +21,10 @@ class FunctionGroup1(object):
     def func2():
         return "func2"
 
+class Result(object):
+    def __init__(self):
+        self.success = True
+        self.containers = ['a','b']
 
 class Api(object):
     def __init__(self):
@@ -28,7 +32,7 @@ class Api(object):
 
     @staticmethod
     def hello():
-        return "hello world"
+        return Result()
 
     @staticmethod
     def add(x, y):
@@ -47,7 +51,9 @@ def server():
 def client():
     url = "http://" + IP + ":" + str(PORT)
     proxy = xmlrpclib.ServerProxy(url)
-    print proxy.hello()
+    result = proxy.hello()
+    print type(result)
+    print result
     print proxy.system.listMethods()
     print proxy.system.methodHelp('hello')
     print proxy.system.methodSignature('hello')
