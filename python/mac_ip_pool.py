@@ -2,6 +2,17 @@ import socket
 import struct
 
 
+class NamePool(object):
+    def __init__(self, prefix):
+        self.prefix = prefix
+        self.index = 1
+
+    def alloc(self):
+        current = self.index
+        self.index += 1
+        return self.prefix + str(current)
+
+
 class MacGen(object):
     def __init__(self, mac_range):
         mac1, mac2 = mac_range.split('-')
@@ -69,3 +80,8 @@ if __name__ == "__main__":
     pool = MacGen("00:54:00:00:00:01-00:54:00:00:00:11")
     while pool.available():
         print pool.alloc()
+
+    pool = NamePool("vm")
+    for i in range(10):
+        print pool.alloc()
+
