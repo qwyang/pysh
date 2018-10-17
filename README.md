@@ -27,6 +27,8 @@ a project to place your python and shell scripts
     git config core.eol crlf
     git config core.autocrlf true
     git archive --format tar.gz -o abc.tar.gz HEAD
+    git push origin master
+    git branch --set-upstream-to=origin/<branch> <branch>
 
 ## other information
     IDE for shell and py: pycharm
