@@ -1,5 +1,10 @@
 # pysh
 a project to place your python and shell scripts
+## rsa key
+    ssh-keygen -t rsa -C '419139939@qq.com'
+
+## vim set number
+    :set number
 
 ## basic config for vim
     vim ~/.vimrc:
